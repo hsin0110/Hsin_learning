@@ -1,0 +1,634 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/****由此開始****/
+h1, h2, h3, h4, h5, h6, p {
+  font-family: 微軟正黑體;
+  line-height: 2.5;
+}
+
+img {
+  max-width: 100%;
+}
+
+section {
+  max-width: 1300px;
+  margin: 30px auto;
+}
+
+#header {
+  position: fixed;
+  background-color: rgba(153, 168, 178, 0.9);
+  width: 100%;
+  top: -70px;
+  z-index: 1;
+  transition: top 0.4s;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.4);
+  /*.phone_bar:after{
+      content:'';
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      border-left:20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 25px solid #FBF7F0;
+      margin-top: 10px;
+      cursor: pointer;
+      opacity: 0.5;
+  }
+  .phone_bar:hover:after{
+      opacity: 1;
+  }*/
+}
+#header .logo {
+  margin-left: 5%;
+}
+#header .logo a {
+  display: block;
+}
+#header .logo a img {
+  height: 55px;
+  display: block;
+}
+#header .phone_bar {
+  display: none;
+}
+#header .menu {
+  display: flex;
+}
+#header .menu li {
+  margin-right: 10px;
+}
+#header .menu li a {
+  text-decoration: none;
+  display: block;
+  color: #FFDD93;
+  padding: 20px 25px;
+}
+#header .menu li a:hover {
+  color: salmon;
+}
+#header .menu li:hover {
+  background-color: #F6F5F1;
+}
+
+.submenu {
+  position: relative;
+}
+.submenu .subbtn:after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #FBF7F0;
+}
+.submenu .subbtn:hover:after {
+  border-top-color: rgba(0, 0, 0, 0.4);
+}
+.submenu .subitems {
+  position: absolute;
+  display: none;
+  background-color: #99a8b2;
+  left: 0;
+  top: 55px;
+  z-index: 1;
+}
+.submenu .subitems a {
+  color: black;
+  padding: 15px 25px;
+}
+.submenu .subitems a:hover {
+  background-color: #F6F5F1;
+}
+
+/*關於我們*/
+#about {
+  position: relative;
+  margin: 0;
+  max-width: none;
+}
+#about .slideImages {
+  position: relative;
+  display: none;
+}
+#about .slideImages .text {
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  width: 60%;
+}
+#about .slideImages .text h2 {
+  font-size: 45px;
+}
+#about .slideImages .text p {
+  font-size: 20px;
+}
+#about .prev, #about .next {
+  position: absolute;
+  cursor: pointer;
+  padding: 15px;
+  top: 30%;
+  font-size: 70px;
+  transition: 0.6s ease;
+  border-radius: 5px;
+  font-weight: bolder;
+  color: #ffffff;
+}
+#about .next {
+  right: 0;
+}
+#about .prev:hover, #about .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+#about .fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 1.5s;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*理念*/
+#idea {
+  text-align: center;
+}
+#idea h3 {
+  font-size: 35px;
+  font-weight: bolder;
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+}
+#idea h3:after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 0;
+  border-bottom: 5px solid salmon;
+  transition: 0.8s;
+}
+#idea h3.showborder:after {
+  width: 100%;
+}
+#idea p {
+  font-size: 20px;
+  padding: 0 20%;
+}
+
+/*進修項目*/
+#studies li {
+  display: flex;
+  list-style: none;
+  padding: 50px 30px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+#studies li .big_img {
+  max-width: 600px;
+  width: 100%;
+}
+#studies li .scription {
+  padding: 0px 50px;
+}
+#studies li .scription h2 {
+  color: #2D6187;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 30px;
+}
+#studies li .scription .small_img {
+  max-width: 150px;
+  width: 100%;
+  display: flex;
+  margin-top: 30px;
+}
+#studies li .scription .small_img img {
+  display: block;
+  margin: 0 20px 0 0;
+}
+#studies .studiesItem {
+  opacity: 1;
+}
+
+/*最新課程*/
+#news h2 {
+  text-align: center;
+  font-size: 50px;
+  font-weight: bolder;
+  letter-spacing: 10px;
+  position: relative;
+}
+#news h2:before,
+#news h2:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 15%;
+  height: 5px;
+  background-color: slategray;
+}
+#news h2:before {
+  left: 10%;
+}
+#news h2:after {
+  right: 10%;
+}
+#news .inner {
+  text-align: center;
+}
+#news select {
+  padding: 10px 15px;
+  margin-right: 10px;
+}
+#news input {
+  padding: 10px;
+}
+#news table {
+  margin: 10px auto;
+  border-collapse: separate;
+  border-spacing: 0px 10px;
+  width: 95%;
+  text-align: center;
+}
+#news table .number {
+  background-color: #94B4A4;
+  color: cornsilk;
+}
+#news table .type {
+  background-color: #EFFAD3;
+}
+#news table .title a {
+  text-decoration: none;
+  color: #0056b3;
+  font-size: 18px;
+  font-weight: bolder;
+  padding: 15px;
+  display: block;
+}
+#news table .title:hover {
+  background-color: mintcream;
+}
+#news th {
+  background-color: #94B4A4;
+  color: cornsilk;
+  padding: 10px;
+}
+#news td {
+  margin: 0 5px;
+  border-bottom: 1px dashed brown;
+}
+
+/*報名表單*/
+#signup_form {
+  padding: 20px 50px;
+}
+#signup_form h3 {
+  font-size: 50px;
+  font-weight: bolder;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+#signup_form h3:before,
+#signup_form h3:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 15%;
+  height: 5px;
+  background-color: slategray;
+}
+#signup_form h3:before {
+  left: 10%;
+}
+#signup_form h3:after {
+  right: 10%;
+}
+#signup_form form {
+  width: 80%;
+  margin: 0 auto;
+}
+#signup_form form .form-group select {
+  width: 40%;
+}
+#signup_form form .form-group .form-check {
+  text-align: center;
+}
+#signup_form form .submit_btn {
+  width: 40%;
+  margin: 0 auto;
+  display: block;
+}
+
+/*聯絡資訊*/
+footer {
+  background-color: lightslategray;
+  color: #eeeeee;
+}
+footer .inner {
+  width: 90%;
+  margin: 0 auto;
+  padding: 25px;
+}
+footer p {
+  font-size: 14px;
+}
+footer .contact_title {
+  margin-bottom: 20px;
+  border-bottom: 2px solid #eeeeee;
+  font-size: 30px;
+  letter-spacing: 3px;
+}
+footer .icon_list {
+  margin-top: 55px;
+}
+footer .icon_list a {
+  display: inline-block;
+}
+footer .icon_list img {
+  width: 32px;
+  display: inline-block;
+  margin-right: 10px;
+}
+footer .icon_list img:hover {
+  opacity: 0.6;
+}
+
+#topbtn {
+  width: 32px;
+  height: 32px;
+  background-color: #03C4A1;
+  border-radius: 50%;
+  position: fixed;
+  right: 2%;
+  bottom: 2%;
+  cursor: pointer;
+}
+
+#topbtn:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid #FBF7F0;
+  position: absolute;
+  top: 30%;
+  left: 25%;
+}
+
+/*****RWD*****/
+@media screen and (max-width: 980px) {
+  #header {
+    display: block;
+    top: 0;
+  }
+  #header .logo {
+    margin-left: 0;
+  }
+  #header .logo img {
+    margin: 0 auto;
+  }
+  #header .menu {
+    justify-content: center;
+  }
+
+  #about {
+    padding-top: 110px;
+  }
+
+  #idea h3 {
+    font-size: 28px;
+  }
+  #idea h3:after {
+    width: 100%;
+    transition: none;
+  }
+
+  #studies li {
+    display: block;
+    opacity: 1;
+  }
+  #studies li .big_img {
+    max-width: none;
+  }
+  #studies li .scription {
+    text-align: center;
+  }
+  #studies li .scription p {
+    font-size: 18px;
+  }
+  #studies li .scription .small_img img {
+    opacity: 0.6;
+  }
+  #studies li .scription .small_img img:hover {
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 768px) {
+  #header .logo {
+    text-align: center;
+  }
+  #header .logo a {
+    display: inline-block;
+  }
+  #header .phone_bar {
+    display: inline-block;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+  #header .phone_bar img {
+    width: 32px;
+    display: block;
+  }
+  #header .menu {
+    display: block;
+    text-align: center;
+  }
+  #header .phone_menu {
+    display: none;
+  }
+  #header .submenu .subitems {
+    position: relative;
+    top: 0;
+  }
+
+  #about {
+    padding-top: 70px;
+  }
+
+  #idea h3 {
+    font-size: 25px;
+  }
+  #idea p {
+    font-size: 17px;
+    padding: 0 15%;
+  }
+
+  #studies li .scription p {
+    font-size: 15px;
+  }
+
+  #news h2 {
+    font-size: 40px;
+  }
+
+  #news h2:before,
+#news h2:after {
+    width: 15%;
+  }
+
+  #signup_form .form-group {
+    text-align: center;
+  }
+
+  #contact .row {
+    text-align: center;
+  }
+
+  footer .inner {
+    width: 90%;
+  }
+  footer .icon_list {
+    margin-top: 15px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #idea h3 {
+    font-size: 20px;
+  }
+  #idea p {
+    font-size: 15px;
+    padding: 0 5%;
+  }
+
+  #studies li .scription {
+    padding: 0 30px;
+  }
+
+  #studies li .scription .small_img {
+    max-width: none;
+    display: block;
+  }
+  #studies li .scription .small_img img {
+    margin-bottom: 5px;
+  }
+
+  #news h2 {
+    font-size: 30px;
+  }
+  #news select, #news input {
+    padding: 5px;
+  }
+  #news td {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+  #news table .title a {
+    font-size: 13px;
+    padding: 0;
+  }
+
+  #signup_form {
+    padding: 10px;
+  }
+  #signup_form h3 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 375px) {
+  #idea h3 {
+    width: 70%;
+  }
+
+  #studies li .scription {
+    padding: 0;
+  }
+
+  #news h2 {
+    font-size: 20px;
+  }
+
+  #news .inner {
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  #news select {
+    margin-bottom: 10px;
+  }
+
+  #news th {
+    font-size: 13px;
+  }
+
+  #signup_form form .form-group select {
+    width: 70%;
+  }
+}
